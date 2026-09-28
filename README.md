@@ -80,3 +80,48 @@ src/splits.py, metrics.py  shared recording-level split + metrics/plots
 - **Faint** audio is a broad tax proportional to spectral complexity (cisticola
   immune, broadband melodic callers hit hard).
 - **Overlap** is essentially free — BirdNET embeddings are overlap-robust.
+
+## Results
+
+**Headline (10-seed × 5-fold recording-level cross-validation, leakage-audited):**
+
+| Metric | Score |
+|---|---|
+| Accuracy | **0.897 ± 0.006** |
+| Macro-F1 | **0.840 ± 0.027** |
+
+**Per-class F1** (mean ± std over 10 seeds):
+
+| Species | F1 | Recordings |
+|---|---|---|
+| Zitting Cisticola | 0.972 ± 0.004 | 70 |
+| Oriental Magpie-Robin | 0.910 ± 0.008 | 22 |
+| Indian Cuckoo | 0.889 ± 0.005 | 70 |
+| Purple-rumped Sunbird | 0.887 ± 0.008 | 70 |
+| Red-vented Bulbul | 0.867 ± 0.011 | 70 |
+| Indian Eagle-Owl | 0.516 ± 0.153 | **7 (rare)** |
+
+All variance localises to the eagle-owl (n=7); the method itself is stable (±0.006 accuracy).
+
+### Confusion matrix
+
+![Confusion matrix](outputs/final_confusion_matrix.png)
+
+Errors are structured, not random: the owl's misses go mainly to the acoustically
+similar cuckoo (both low, tonal, repetitive); the melodic passerines
+(sunbird ↔ bulbul) trade a few errors.
+
+### Handling the messy parts
+
+| Challenge | Result |
+|---|---|
+| **Faint / low-volume** | macro-F1 0.88 → 0.63; hits broadband/melodic species hard, cisticola nearly immune |
+| **Overlap (multi-label)** | foreground caught ~0.78; both birds ~0.55 at equal loudness → 0.38 as 2nd bird quietens |
+| **Scarcity (owl), precision-first** | 93% precision at 53% recall (decision threshold 0.70) |
+| **Imbalance** | balanced weights + recording-level CV + owl augmentation; leakage audit passes |
+
+One unifying cause — **spectral complexity**: narrow-band repetitive calls (cisticola)
+survive noise, faintness, and overlap; broadband/rare calls (owl, melodic species)
+are the first to fail across all three.
+
+Full analysis and all supporting experiments: [`ANALYSIS.md`](ANALYSIS.md).
