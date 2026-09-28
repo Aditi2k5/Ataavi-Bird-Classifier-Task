@@ -1,0 +1,25 @@
+# --- data layer (implemented) ---
+requests
+pyyaml
+pandas
+tqdm
+
+# --- shared metrics / splitting (implemented) ---
+numpy
+scikit-learn
+matplotlib
+seaborn
+
+# --- audio preprocessing (CNN path) ---
+librosa
+soundfile
+resampy
+
+# --- approach A: BirdNET embeddings (recommended) ---
+birdnetlib            # pulls tensorflow / tflite-runtime
+
+# --- approach B: from-scratch CNN ---
+torch                 # install the MPS/CUDA build for your platform
+
+# --- tests ---
+pytest

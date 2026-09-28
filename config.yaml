@@ -1,0 +1,43 @@
+species:
+  - {label: indian_cuckoo,         gen: Cuculus,    sp: micropterus, en: "Indian Cuckoo",         tier: abundant, max: 70}
+  - {label: indian_eagle_owl,      gen: Bubo,       sp: bengalensis, en: "Indian Eagle-Owl",      tier: rare,     max: 999}
+  - {label: oriental_magpie_robin, gen: Copsychus, sp: saularis, en: "Oriental Magpie-Robin", tier: moderate, max: 70}
+  - {label: purple_rumped_sunbird, gen: Leptocoma,  sp: zeylonica,   en: "Purple-rumped Sunbird", tier: moderate, max: 70}
+  - {label: zitting_cisticola,     gen: Cisticola,  sp: juncidis,    en: "Zitting Cisticola",     tier: moderate, max: 70}
+  - {label: red_vented_bulbul,     gen: Pycnonotus, sp: cafer,       en: "Red-vented Bulbul",     tier: abundant, max: 70}
+
+query:
+  length_seconds: "3-60"
+  country: null
+  quality: null
+  per_page: 100
+
+selection:
+  min_overlap_frac: 0.25
+  min_lowgrade_frac: 0.35
+  low_grades: [C, D, E, ""]
+
+download:
+  sleep_between_requests: 1.0
+  skip_existing: true
+
+paths:
+  audio_dir: data/audio
+  manifest:  data/recordings_used.csv
+  out_dir:   outputs
+
+seed: 1337
+
+birdnet:
+  min_conf: 0.05
+  sample_rate: 48000
+  faint_rms_percentile: 25
+  owl_label: indian_eagle_owl
+
+eval:
+  n_folds: 5
+
+augment:
+  n_aug_per_owl: 20
+  snr_db: [0, 15]
+  seg_seconds: 3.0

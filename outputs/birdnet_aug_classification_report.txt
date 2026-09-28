@@ -1,0 +1,40 @@
+                       precision    recall  f1-score   support
+
+        indian_cuckoo      0.860     0.895     0.877       570
+     indian_eagle_owl      0.603     0.627     0.614        75
+oriental_magpie_robin      0.941     0.874     0.906       127
+purple_rumped_sunbird      0.882     0.878     0.880       631
+    zitting_cisticola      0.971     0.947     0.959       678
+    red_vented_bulbul      0.874     0.878     0.876       655
+
+             accuracy                          0.891      2736
+            macro avg      0.855     0.850     0.852      2736
+         weighted avg      0.893     0.891     0.892      2736
+
+
+Summary:
+{
+  "accuracy": 0.8914473684210527,
+  "macro_f1": 0.8520647659805086,
+  "weighted_f1": 0.8918958943015803,
+  "per_class_f1": {
+    "indian_cuckoo": 0.8770421324161651,
+    "indian_eagle_owl": 0.6143790849673203,
+    "oriental_magpie_robin": 0.9061224489795918,
+    "purple_rumped_sunbird": 0.8800635424940428,
+    "zitting_cisticola": 0.958924570575056,
+    "red_vented_bulbul": 0.8758568164508759
+  },
+  "slices": {
+    "faint": {
+      "n": 684,
+      "accuracy": 0.7777777777777778,
+      "macro_f1": 0.6349745392226531
+    },
+    "overlap": {
+      "n": 865,
+      "accuracy": 0.9052023121387284,
+      "macro_f1": 0.7390513192199766
+    }
+  }
+}

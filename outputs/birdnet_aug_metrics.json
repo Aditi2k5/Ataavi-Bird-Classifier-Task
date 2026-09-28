@@ -1,0 +1,33 @@
+{
+  "accuracy": 0.8914473684210527,
+  "macro_f1": 0.8520647659805086,
+  "weighted_f1": 0.8918958943015803,
+  "per_class_f1": {
+    "indian_cuckoo": 0.8770421324161651,
+    "indian_eagle_owl": 0.6143790849673203,
+    "oriental_magpie_robin": 0.9061224489795918,
+    "purple_rumped_sunbird": 0.8800635424940428,
+    "zitting_cisticola": 0.958924570575056,
+    "red_vented_bulbul": 0.8758568164508759
+  },
+  "per_class_support": {
+    "indian_cuckoo": 570,
+    "indian_eagle_owl": 75,
+    "oriental_magpie_robin": 127,
+    "purple_rumped_sunbird": 631,
+    "zitting_cisticola": 678,
+    "red_vented_bulbul": 655
+  },
+  "slices": {
+    "faint": {
+      "n": 684,
+      "accuracy": 0.7777777777777778,
+      "macro_f1": 0.6349745392226531
+    },
+    "overlap": {
+      "n": 865,
+      "accuracy": 0.9052023121387284,
+      "macro_f1": 0.7390513192199766
+    }
+  }
+}
