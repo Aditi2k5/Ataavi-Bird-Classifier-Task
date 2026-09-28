@@ -1,0 +1,5 @@
+data/audio/
+.env
+__pycache__/
+*.pyc
+# keep data/recordings_used.csv (it's a deliverable)
